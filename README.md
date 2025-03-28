@@ -9,13 +9,17 @@ Since the data sample is only 32x32 size, I used 5x5 kernel for the initial conv
 
 **Optimiser:** Adam with Reduce Learning on Plateau.
 
-**Files**:
-- `particle_classification.ipynb`: Contains data loading, model training, and evaluation
-- `model_weights.pth`: Trained model weights
+**Notebook**: [![Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1EdVOdGL6L_yyi5rEg8x0eTKhx2bS0Cfv?usp=sharing)
 
-**Notebook**: [![Colab](https://colab.research.google.com/assets/colab-badge.svg)]([https://colab.research.google.com/github/your-username/your-repo/blob/main/MNIST_Symmetry_Discovery.ipynb](https://colab.research.google.com/drive/1EdVOdGL6L_yyi5rEg8x0eTKhx2bS0Cfv?usp=sharing))
-**Weights** https://drive.google.com/file/d/1tV7p5oU6uDoWKYavzMcwqXrDxNtntSlH/view?usp=sharing
-**Results**
+**Weights**: https://drive.google.com/file/d/1tV7p5oU6uDoWKYavzMcwqXrDxNtntSlH/view?usp=sharing
+
+**Results**: AUC score: 0.8044
+
+<p float="left">
+  <img src="https://github.com/8Nero/ML4SCI-E2E/blob/main/images/loss_curves.png" width="50%"  />
+  <img src="https://github.com/8Nero/ML4SCI-E2E/blob/main/images/auc_curve.png" width="50%" />
+  <img src="https://github.com/8Nero/ML4SCI-E2E/blob/main/images/roc_curve.png" width="50%" />
+</p>
 
 ## Task 2j: Semi-Supervised Symmetry Discovery
 
@@ -26,10 +30,21 @@ Since the data sample is only 32x32 size, I used 5x5 kernel for the initial conv
 The notebook `task2-part1.ipynb` contains supervised symmetry and unsupervised symmetry discovery task (with latent dimension 2).
 While `task2-part2.ipynb` contains unsupervised symmetry discovery task with latent dimension 5 and multiple generators were trained.
 
-**Files**:
-- `symmetry_discovery.ipynb`: Contains all three subtasks
+**Notebook 1**: [![Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/18q5ip3GeaPOhZ3lDZPXDK4-U6tGxtg0V?usp=sharing)
 
-**Tasks**:
-1. Dataset preparation with 30° rotations of digits 1 and 2
-2. Supervised symmetry discovery using MLP on latent space
-3. Unsupervised symmetry discovery with latent dimensions 2 and 5
+**Notebook 2**: [![Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1s8NBza49b5LRmLp2nAlBKUSjN4mKxR4O?usp=sharing)
+
+**Results**
+The supervised symmetry discovery task was successfully completed. For the unsupervised symmetry discovery, the notebooks are divided into two parts. In the first part, I used latent dimension of size 2 for the VAE and used a single generator NN model for discovering symmetries. The model seems to have discovered rotational symmetry on the digit 1. The generator doesn't seem to effectively rotate the digit 2, which might be constrained by the VAE model's performance.
+
+<p float="left">
+  <img src="https://github.com/8Nero/ML4SCI-E2E/blob/main/images/gen1-2d.png" width="50%"  />
+  <img src="https://github.com/8Nero/ML4SCI-E2E/blob/main/images/latent_flow.png" width="50%" />
+</p>
+
+In the second part, I increased VAE model's latent dimension to 5 and trained four generator models. These models seem to be stuck on trivial transformations.
+
+<p float="left">
+  <img src="https://github.com/8Nero/ML4SCI-E2E/blob/main/images/gens-5d.png" width="50%"  />
+</p>
+
